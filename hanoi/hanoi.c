@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void TOH(int n,char inicio, char aux,char destino)
+void TOH(int n,char inicio, char aux,char destino) /*4*/
 { 
-	if(n==1)
+	if(n==1) 
 	{
 		printf("%i| %c -> %c \n",n,inicio,destino);
 		 
@@ -12,7 +12,7 @@ void TOH(int n,char inicio, char aux,char destino)
 	printf("%i| %c -> %c \n",n,inicio,destino);
 	TOH(n-1,aux,inicio,destino);
 }
-int main()
+int main()/*2*/
 { 
 	int n=5;
 	TOH(n,'A','B','C');

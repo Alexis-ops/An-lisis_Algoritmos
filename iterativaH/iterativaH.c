@@ -10,7 +10,7 @@ struct Stack
 	int *array;
 };
 
-struct Stack* createStack(unsigned capacity)
+struct Stack* createStack(unsigned capacity) /*5*/
 {
 	struct Stack* stack =
 		(struct Stack*) malloc(sizeof(struct Stack));
@@ -20,35 +20,35 @@ struct Stack* createStack(unsigned capacity)
 		(int*) malloc(stack -> capacity * sizeof(int));
 	return stack;
 }
-int isFull(struct Stack* stack)
+int isFull(struct Stack* stack) /*1*/
 {
 	return (stack->top == stack->capacity - 1);
 }
-int isEmpty(struct Stack* stack)
+int isEmpty(struct Stack* stack) /*1*/
 {
 	return (stack->top == -1);
 }
-void push(struct Stack *stack, int item)
+void push(struct Stack *stack, int item) /*2*/
 {
 	if (isFull(stack))
 		return;
 	stack -> array[++stack -> top] = item;
 }
-int pop(struct Stack* stack)
+int pop(struct Stack* stack) /*2*/
 {
 	if (isEmpty(stack))
 		return INT_MIN;
 	return stack -> array[stack -> top--];
 }
 
-void moveDisk(char fromPeg, char toPeg, int disk)
+void moveDisk(char fromPeg, char toPeg, int disk) /*1*/
 {
 	printf("%d| \'%c\' -> \'%c\'\n",
 			disk, fromPeg, toPeg);
 }
 
 void moveDisksBetweenTwoPoles(struct Stack *src,
-		struct Stack *dest, char s, char d)
+		struct Stack *dest, char s, char d) /*12*/
 {
 	int pole1TopDisk = pop(src);
 	int pole2TopDisk = pop(dest);
@@ -77,7 +77,7 @@ void moveDisksBetweenTwoPoles(struct Stack *src,
 }
 void tohIterative(int num_of_disks, struct Stack
 		*src, struct Stack *aux,
-		struct Stack *dest)
+		struct Stack *dest) /*5 n 3n =4n+5 */
 {
 	int i, total_num_of_moves;
 	char s = 'S', d = 'D', a = 'A';
@@ -103,9 +103,9 @@ void tohIterative(int num_of_disks, struct Stack
 			moveDisksBetweenTwoPoles(aux, dest, a, d);
 	}
 }
-int main()
+int main() /*5*/
 {
-	unsigned num_of_disks = 15;
+	unsigned num_of_disks = 15
 	struct Stack *src, *dest, *aux;
 
 	src = createStack(num_of_disks);
