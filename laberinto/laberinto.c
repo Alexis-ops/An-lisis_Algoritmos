@@ -1,6 +1,6 @@
 #include "laberinto.h"
 void
-mostrar (char laberinto[][7], int filas, int columnas)
+mostrar (char laberinto[][9], int filas, int columnas)
 {
   for (int i = 0; i < filas; i++)
     {
@@ -13,7 +13,7 @@ mostrar (char laberinto[][7], int filas, int columnas)
 }
 
 bool
-paso (char laberinto[][7],int x, int y)
+paso (char laberinto[][9],int x, int y)
 {
   if (laberinto[x][y] == 'F')
     {
@@ -50,7 +50,7 @@ paso (char laberinto[][7],int x, int y)
 }
 
 void
-resolver (char laberinto[][7],int x, int y)
+resolver (char laberinto[][9],int x, int y)
 {
   if (laberinto[x][y] == laberinto[0][0])
     {
